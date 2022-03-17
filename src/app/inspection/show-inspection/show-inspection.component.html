@@ -1,0 +1,48 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#inspectionTypesModal">
+	Show Inspection Types
+</button>
+  
+<table class="table table-striped">
+	<thead>
+		<th>Id</th>
+		<th>Inspection Type</th>
+		<th>Status</th>
+		<th>Comments</th>
+		<th>Options</th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let item of inspectionList$|async">
+			<td>{{item.id}}</td>
+			<td>{{item.inspectionTypeId}}</td>
+			<td>{{item.status}}</td>
+			<td>{{item.comments}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="inspectionTypesModal" tabindex="-1" aria-labelledby="inspectionTypesModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="ModalLabel">Inspection Types</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<table class="table table-striped">
+				<thead>
+					<th>Id</th>
+					<th>Name</th>
+				</thead>
+				<tbody>
+					<tr *ngFor="let type of inspectionTypeList$|async">
+						<td>{{type.id}}</td>
+						<td>{{type.inspectionName}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
